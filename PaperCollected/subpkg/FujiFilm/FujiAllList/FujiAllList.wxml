@@ -1,0 +1,32 @@
+<!-- 点击容器空白处 还原所有相纸 -->
+<view class="paper-container" bindtap="resetAllPaper">
+  <!-- wide 相纸 最底层 -->
+  <view 
+    class="paper paper-wide {{activePaper === 'wide' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="wide"
+  >
+    <view class="paper-photo"></view>
+    <view class="paper-label">wide</view>
+  </view>
+
+  <!-- Square 相纸 中间层 -->
+  <view 
+    class="paper paper-square {{activePaper === 'square' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="square"
+  >
+    <view class="paper-photo"></view>
+    <view class="paper-label">Square</view>
+  </view>
+
+  <!-- mini 相纸 最上层 -->
+  <view 
+    class="paper paper-mini {{activePaper === 'mini' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="mini"
+  >
+    <view class="paper-photo"></view>
+    <view class="paper-label">mini</view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!--subpkg/FujiFilm/CommonPaperList/CommonPaperList.wxml-->
+<view class="container">
+  <!-- 顶部标题（根据类型动态显示） -->
+  <view class="page-title">富士 {{paperTypeText}} 相纸图鉴</view>
+
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <!-- 卡片列表 -->
+  <view class="card-list" wx:else>
+    <block wx:for="{{paperList}}" wx:key="_id">
+      <view class="card">
+        <!-- 相纸图片 -->
+        <image class="card-img" src="{{item.pic}}" mode="aspectFill"></image>
+        <!-- 相纸名称 -->
+        <view class="card-name">{{item.title}}</view>
+      </view>
+    </block>
+
+    <!-- 无数据提示 -->
+    <view wx:if="{{paperList.length === 0 && !loading}}" class="empty">暂无 {{paperTypeText}} 相纸数据</view>
+  </view>
+</view>
