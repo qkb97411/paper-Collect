@@ -1,0 +1,173 @@
+.paper-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #eef6fc 0%, #dceaf5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.polaroid-paper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 10rpx 34rpx rgba(26, 95, 138, 0.18);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translate(-50%, -50%);
+}
+
+.paper-photo {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #c8ddea 0%, #eef6fc 100%);
+  border-radius: 4rpx;
+  overflow: visible;
+}
+
+.paper-label {
+  position: absolute;
+  bottom: 22rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1a5f8a;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.paper-dim {
+  position: absolute;
+  color: #1a5f8a;
+  font-size: 22rpx;
+  line-height: 1;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+
+.polaroid-paper.active .paper-dim {
+  opacity: 1;
+}
+
+.paper-dim-outer-width {
+  left: 50%;
+  top: 12rpx;
+  transform: translateX(-50%);
+}
+
+.paper-dim-outer-height {
+  right: 10rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+}
+
+.paper-dim-inner-width {
+  left: 50%;
+  top: 10rpx;
+  transform: translateX(-50%);
+}
+
+.paper-dim-inner-height {
+  right: 8rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+}
+
+.polaroid-paper > .paper-dim-outer-width {
+  top: 12rpx;
+}
+
+.polaroid-paper > .paper-dim-outer-height {
+  right: 10rpx;
+}
+
+.paper-photo > .paper-dim-inner-width {
+  top: 10rpx;
+}
+
+.paper-photo > .paper-dim-inner-height {
+  right: 8rpx;
+}
+
+/* Wide 相纸：修改这一组 width/height 可以调整外框尺寸 */
+.polaroid-wide {
+  width: 680rpx; /* 外框宽度 102 */
+  height: 687rpx; /* 外框高度 103 */
+  z-index: 3;
+  transform: translate(calc(-50% - 48rpx), calc(-50% - 310rpx)) rotate(-4deg);
+}
+
+/* Wide 相纸照片区域：修改这里可以调整中间图片区尺寸 */
+.polaroid-wide .paper-photo {
+  width: 613rpx; /* 照片宽度 92 */
+  height: 487rpx; /* 照片高度 73 */
+}
+
+/* 600 / i-Type 相纸：二者外观尺寸一致，修改这一组调整标准方形相纸外框 */
+.polaroid-600 {
+  width: 590rpx; /* 外框宽度 88.5 */
+  height: 717rpx; /* 外框高度 107.5 */
+  z-index: 2;
+  transform: translate(calc(-50% + 92rpx), calc(-50% - 24rpx)) rotate(3deg);
+}
+
+/* 600 / i-Type 照片区域：修改这里可以调整中间方形图片区尺寸 */
+.polaroid-600 .paper-photo {
+  width: 512rpx; /* 照片宽度 76.8 */
+  height: 526rpx; /* 照片高度 78.9 */
+}
+
+/* Go 相纸：修改这一组 width/height 可以调整小尺寸外框 */
+.polaroid-go {
+  width: 359rpx; /* 外框宽度 53.9 */
+  height: 444rpx; /* 外框高度 66.6 */
+  z-index: 1;
+  transform: translate(calc(-50% - 210rpx), calc(-50% + 350rpx)) rotate(-2deg);
+}
+
+/* Go 相纸照片区域：修改这里可以调整中间图片区尺寸 */
+.polaroid-go .paper-photo {
+  width: 307rpx; /* 照片宽度 46 */
+  height: 313rpx; /* 照片高度 47 */
+}
+
+.polaroid-paper.active {
+  transform: translate(-50%, -50%) scale(1.08);
+  z-index: 10;
+  box-shadow: 0 22rpx 64rpx rgba(26, 95, 138, 0.28);
+}
+
+.paper-action-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 72rpx;
+  transform: translate(-50%, 20rpx);
+  max-width: 560rpx;
+  padding: 18rpx 32rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a5f8a;
+  font-size: 26rpx;
+  line-height: 1.3;
+  text-align: center;
+  box-shadow: 0 8rpx 24rpx rgba(26, 95, 138, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.24s ease;
+  z-index: 20;
+}
+
+.paper-action-hint.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

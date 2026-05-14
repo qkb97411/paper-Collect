@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "rocker-toggle": "/subpkg/Components/RockerToggle/RockerToggle"
+  },
+  "navigationBarTitleText": "相纸详情",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark"
+}

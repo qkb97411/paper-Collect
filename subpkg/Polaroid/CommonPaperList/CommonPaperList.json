@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "宝丽来图鉴",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

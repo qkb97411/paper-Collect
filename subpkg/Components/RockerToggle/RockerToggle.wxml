@@ -1,0 +1,4 @@
+<view class="rocker rocker-small" bindtap="toggleSwitch">
+  <view class="switch-left {{checked ? 'active' : ''}}">{{leftText}}</view>
+  <view class="switch-right {{checked ? '' : 'active'}}">{{rightText}}</view>
+</view>

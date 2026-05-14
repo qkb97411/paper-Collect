@@ -1,0 +1,16 @@
+<view class="container polaroid-theme">
+  <view class="page-title">宝丽来 {{paperTypeText}} 相纸图鉴</view>
+
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <view class="card-list" wx:else>
+    <block wx:for="{{paperList}}" wx:key="_id">
+      <view class="card" bindtap="gotoDetail" data-id="{{item._id}}">
+        <image class="card-img" src="{{item.pic}}" mode="aspectFill"></image>
+        <view class="card-name">{{item.title}}</view>
+      </view>
+    </block>
+
+    <view wx:if="{{paperList.length === 0 && !loading}}" class="empty">暂无 {{paperTypeText}} 相纸数据</view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+@import "../../FujiFilm/PaperDetail/PaperDetail.wxss";
+
+page {
+  background: linear-gradient(135deg, #e8f2fa 0%, #dceaf5 50%, #eef6fc 100%);
+}
+
+.polaroid-detail .paper-title {
+  color: #1a5f8a;
+  background: #dceaf5;
+}
+
+.polaroid-detail .paper-box-hint {
+  color: #1a5f8a;
+}
+
+.editor-panel .panel-title {
+  color: #1a5f8a;
+}

@@ -1,0 +1,13 @@
+@import "../../FujiFilm/CommonPaperList/CommonPaperList.wxss";
+
+.polaroid-theme {
+  background: #e8f2fa;
+}
+
+.polaroid-theme .page-title {
+  color: #1a5f8a;
+}
+
+.polaroid-theme .loading {
+  color: #1a5f8a;
+}

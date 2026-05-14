@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "rocker-toggle": "/subpkg/Components/RockerToggle/RockerToggle"
+  },
+  "navigationBarTitleText": "宝丽来详情",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark"
+}

@@ -1,0 +1,147 @@
+<view class="page-scroll">
+  <view class="detail-container">
+    <view
+      class="paper-box {{isOpen ? 'open' : ''}} {{isPressed ? 'pressed' : ''}}"
+      bindtap="togglePaperBox"
+      bindtouchstart="onPressStart"
+      bindtouchend="onPressEnd"
+    >
+      <view class="paper-cover">
+        <image class="cover-img" src="{{paperData.pic}}" mode="aspectFill"></image>
+      </view>
+      <view class="paper-title">{{paperData.title}}</view>
+    </view>
+    <view class="paper-box-hint">{{isOpen ? '点击相纸盒收起样张' : '点击相纸盒展开样张'}}</view>
+
+    <view class="paper-cards" wx:if="{{isOpen}}">
+      <swiper
+        class="cards-swiper"
+        indicator-dots
+        indicator-color="#fff"
+        indicator-active-color="#a05c38"
+        circular
+      >
+        <block wx:for="{{paperData.pageRoot}}" wx:key="index">
+          <swiper-item>
+            <view class="card-item">
+              <image
+                class="card-img"
+                src="{{item}}"
+                mode="aspectFill"
+                bindtap="previewCard"
+                data-src="{{item}}"
+              ></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="editor-panel">
+    <view class="panel-title">收藏信息</view>
+
+    <view class="field-row">
+      <text class="field-label">是否拥有</text>
+      <rocker-toggle
+        checked="{{toggleChecked}}"
+        leftText="没有"
+        rightText="拥有"
+        size="small"
+        bind:change="onToggleChange"
+      ></rocker-toggle>
+    </view>
+
+    <view class="field-block" id="own-count-field" wx:if="{{toggleChecked}}">
+      <text class="field-label">拥有数量</text>
+      <input
+        class="field-input"
+        type="number"
+        value="{{ownCount}}"
+        placeholder="0"
+        data-scroll-target="own-count-field"
+        adjust-position="{{false}}"
+        bindfocus="onInputFocus"
+        bindblur="onInputBlur"
+        bindkeyboardheightchange="onKeyboardHeightChange"
+        bindinput="onOwnCountInput"
+      />
+    </view>
+
+    <block wx:if="{{toggleChecked}}" wx:for="{{paperFormList}}" wx:key="index">
+      <view class="box-card" id="box-card-{{index}}">
+        <view class="box-card-title">第 {{index + 1}} 盒</view>
+        <view class="field-block">
+          <text class="field-label">编号</text>
+          <input
+            class="field-input"
+            value="{{item.code}}"
+            placeholder="请输入编号"
+            data-index="{{index}}"
+            data-scroll-target="box-card-{{index}}"
+            adjust-position="{{false}}"
+            bindfocus="onInputFocus"
+            bindblur="onInputBlur"
+            bindkeyboardheightchange="onKeyboardHeightChange"
+            bindinput="onBoxCodeInput"
+          />
+        </view>
+        <view class="field-block">
+          <text class="field-label">日期</text>
+          <input
+            class="field-input"
+            value="{{item.date}}"
+            placeholder="xxxx-xx"
+            data-index="{{index}}"
+            data-scroll-target="box-card-{{index}}"
+            adjust-position="{{false}}"
+            bindfocus="onInputFocus"
+            bindblur="onInputBlur"
+            bindkeyboardheightchange="onKeyboardHeightChange"
+            bindinput="onBoxDateInput"
+          />
+        </view>
+        <view class="field-block">
+          <text class="field-label">价格</text>
+          <input
+            class="field-input"
+            type="digit"
+            value="{{item.price}}"
+            placeholder="单盒价格"
+            data-index="{{index}}"
+            data-scroll-target="box-card-{{index}}"
+            adjust-position="{{false}}"
+            bindfocus="onInputFocus"
+            bindblur="onInputBlur"
+            bindkeyboardheightchange="onKeyboardHeightChange"
+            bindinput="onBoxPriceInput"
+          />
+        </view>
+        <view class="field-row field-row-toggle">
+          <text class="field-label">是否已使用</text>
+          <rocker-toggle
+            checked="{{item.used}}"
+            leftText="未用"
+            rightText="已用"
+            size="small"
+            boxIndex="{{index}}"
+            bind:change="onBoxUsedChange"
+          ></rocker-toggle>
+        </view>
+        <view class="box-card-save">
+          <button class="save-btn" data-index="{{index}}" bindtap="onSaveBox">保存</button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="keyboard-spacer" style="height: {{keyboardHeight}}px;"></view>
+</view>
+
+<view class="preview-mask {{isPreview ? 'show' : ''}}" bindtap="closePreview">
+  <image
+    class="preview-image {{isPreview ? 'show' : ''}}"
+    src="{{previewUrl}}"
+    mode="aspectFit"
+    catchtap="noop"
+  ></image>
+</view>

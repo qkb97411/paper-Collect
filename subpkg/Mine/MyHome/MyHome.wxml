@@ -1,0 +1,81 @@
+<view class="page">
+  <image class="page-bg" src="/assets/images/mineBg_compressed.jpg" mode="aspectFill"></image>
+  <view class="profile-card">
+    <button class="avatar-wrap" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image wx:if="{{avatarUrl}}" class="avatar" src="{{avatarUrl}}" mode="aspectFill" binderror="onAvatarError"></image>
+      <view wx:else class="avatar avatar-placeholder"></view>
+    </button>
+    <view class="profile-meta">
+      <view class="nick-row" bindtap="openNicknameEditor">
+        <text class="nick-display">{{displayNickName}}</text>
+        <text class="nick-edit-hint" wx:if="{{showNickHint}}">点击修改昵称</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="nick-modal" wx:if="{{nickModalVisible}}" catchtouchmove="noop">
+    <view class="nick-modal-mask" bindtap="closeNickModal"></view>
+    <view class="nick-modal-panel" catchtap="noop">
+      <view class="nick-modal-title">修改昵称</view>
+      <input
+        class="nick-modal-input"
+        value="{{nickModalInput}}"
+        placeholder="请输入昵称"
+        maxlength="16"
+        focus="{{nickModalFocus}}"
+        bindinput="onNickModalInput"
+      />
+      <view class="nick-modal-actions">
+        <button class="nick-modal-btn cancel" bindtap="closeNickModal">取消</button>
+        <button class="nick-modal-btn ok" bindtap="confirmNickModal">确定</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">类型筛选</view>
+  <view class="primary-tabs">
+    <view
+      class="tab-pill {{primaryTab === 'all' ? 'active' : ''}}"
+      bindtap="setPrimaryTab"
+      data-tab="all"
+    >All</view>
+    <view
+      class="tab-pill {{primaryTab === 'fuji' ? 'active' : ''}}"
+      bindtap="setPrimaryTab"
+      data-tab="fuji"
+    >FujiFilm</view>
+    <view
+      class="tab-pill {{primaryTab === 'polaroid' ? 'active' : ''}}"
+      bindtap="setPrimaryTab"
+      data-tab="polaroid"
+    >Polaroid</view>
+  </view>
+
+  <scroll-view wx:if="{{primaryTab !== 'all'}}" scroll-x class="sub-type-scroll">
+    <view class="sub-type-row">
+      <view
+        wx:for="{{subTypeChips}}"
+        wx:key="value"
+        class="chip {{subTypeSelected === item.value ? 'chip-active' : ''}}"
+        bindtap="setSubType"
+        data-value="{{item.value}}"
+      >{{item.label}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="section-title">统计</view>
+  <view class="stats-row">
+    <view class="stat-card">
+      <view class="stat-label">总花费</view>
+      <view class="stat-value">¥ {{totalSpend}}</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-label">总库存</view>
+      <view class="stat-value">{{totalStock}}</view>
+      <view class="stat-sub">按拥有数量合计</view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">加载中…</view>
+  <view wx:elif="{{loadError}}" class="error">{{loadError}}</view>
+</view>

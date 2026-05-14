@@ -1,0 +1,82 @@
+page {
+  background: #f0ebe5;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+}
+
+/* 拍立得相纸容器 */
+.polaroid-wrap {
+  width: 100%;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.12);
+  padding: 24rpx 24rpx 16rpx;
+  box-sizing: border-box;
+}
+
+/* 图片区域 */
+.polaroid-img-box {
+  width: 100%;
+  height: 66.66vh;
+  min-height: 400rpx; /* 新增：小屏兜底 */
+  border-radius: 12rpx;
+  overflow: hidden;
+  background: #f7f3ee;
+}
+.banner-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* TAB标签栏 */
+.tab-container {
+  display: flex;
+  height: 80rpx;
+  margin-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #888;
+  /* 全局文艺字体 */
+  font-family: "PingFang SC","Microsoft YaHei",serif;
+  letter-spacing: 2rpx;
+}
+.tab-item.active {
+  color: #a05c38;
+  font-weight: 600;
+}
+
+/* 图片下方信息卡片 —— 全部居中+设计感排版 */
+.info-card {
+  margin-top: 20rpx;
+  padding: 40rpx 15rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  text-align: center;  /* 整体居中 */
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
+}
+
+/* 上传者名字 */
+.username {
+  font-size: 28rpx;
+  color: #8c5e4b; /* 复古胶片棕 */
+  font-weight: 500;
+  margin-bottom: 16rpx;
+  letter-spacing: 4rpx; /* 字间距拉长 文艺感 */
+  /* 拍立得主题设计感衬线字体 */
+  font-family: serif;
+}
+
+/* 描述文案 */
+.desc {
+  font-size: 28rpx;
+  color: #777;
+  line-height: 1.8; /* 行高宽松 像相纸印字 */
+  letter-spacing: 2rpx;
+  font-family: "Microsoft YaHei",serif;
+}

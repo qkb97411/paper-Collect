@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "相纸图鉴",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

@@ -1,0 +1,50 @@
+<view class="paper-container" bindtap="resetAllPaper">
+  <view
+    class="polaroid-paper polaroid-wide {{activePaper === 'wide' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="wide"
+    data-label="Wide"
+  >
+    <view class="paper-dim paper-dim-outer-width">102 mm</view>
+    <view class="paper-dim paper-dim-outer-height">103 mm</view>
+    <view class="paper-photo">
+      <view class="paper-dim paper-dim-inner-width">92 mm</view>
+      <view class="paper-dim paper-dim-inner-height">73 mm</view>
+    </view>
+    <view class="paper-label">Wide</view>
+  </view>
+
+  <view
+    class="polaroid-paper polaroid-600 {{activePaper === '600' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="600"
+    data-label="600 / i-Type"
+  >
+    <view class="paper-dim paper-dim-outer-width">88.5 mm</view>
+    <view class="paper-dim paper-dim-outer-height">107.5 mm</view>
+    <view class="paper-photo">
+      <view class="paper-dim paper-dim-inner-width">76.8 mm</view>
+      <view class="paper-dim paper-dim-inner-height">78.9 mm</view>
+    </view>
+    <view class="paper-label">600 / i-Type</view>
+  </view>
+
+  <view
+    class="polaroid-paper polaroid-go {{activePaper === 'go' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="go"
+    data-label="go"
+  >
+    <view class="paper-dim paper-dim-outer-width">53.9 mm</view>
+    <view class="paper-dim paper-dim-outer-height">66.6 mm</view>
+    <view class="paper-photo">
+      <view class="paper-dim paper-dim-inner-width">46 mm</view>
+      <view class="paper-dim paper-dim-inner-height">47 mm</view>
+    </view>
+    <view class="paper-label">Go</view>
+  </view>
+
+  <view class="paper-action-hint {{activePaper ? 'show' : ''}}">
+    再次点击 {{activePaperLabel}} 查看图鉴
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<!-- 拍立得相纸主体 -->
+<view class="polaroid-wrap">
+  <!-- 顶部banner图 -->
+  <view class="polaroid-img-box">
+    <image src="{{currentData.image}}" mode="aspectFill" class="banner-img"></image>
+  </view>
+
+  <!-- 底部TAB栏 -->
+  <view class="tab-container">
+    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">
+      Fujifilm
+    </view>
+    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">
+      Polaroid
+    </view>
+    <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap="switchTab" data-tab="2">
+      我的
+    </view>
+  </view>
+</view>
+
+<!-- 图片下方信息：上传者想说的话 -->
+<view class="info-card">
+  <view class="username">{{currentData.name}}</view>
+  <view class="desc">{{currentData.desc}}</view>
+</view>

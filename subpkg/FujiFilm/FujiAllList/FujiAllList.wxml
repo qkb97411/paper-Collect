@@ -1,0 +1,51 @@
+<!-- 点击容器空白处 还原所有相纸 -->
+<view class="paper-container" bindtap="resetAllPaper">
+  <!-- wide 相纸 最底层 -->
+  <view 
+    class="paper paper-wide {{activePaper === 'wide' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="wide"
+  >
+    <view class="paper-dim paper-dim-outer-width">108 mm</view>
+    <view class="paper-dim paper-dim-outer-height">86 mm</view>
+    <view class="paper-photo">
+      <view class="paper-dim paper-dim-inner-width">99 mm</view>
+      <view class="paper-dim paper-dim-inner-height">62 mm</view>
+    </view>
+    <view class="paper-label">wide</view>
+  </view>
+
+  <!-- Square 相纸 中间层 -->
+  <view 
+    class="paper paper-square {{activePaper === 'square' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="square"
+  >
+    <view class="paper-dim paper-dim-outer-width">72 mm</view>
+    <view class="paper-dim paper-dim-outer-height">86 mm</view>
+    <view class="paper-photo">
+      <view class="paper-dim paper-dim-inner-width">62 mm</view>
+      <view class="paper-dim paper-dim-inner-height">62 mm</view>
+    </view>
+    <view class="paper-label">Square</view>
+  </view>
+
+  <!-- mini 相纸 最上层 -->
+  <view 
+    class="paper paper-mini {{activePaper === 'mini' ? 'active' : ''}}"
+    catchtap="selectPaper"
+    data-type="mini"
+  >
+    <view class="paper-dim paper-dim-outer-width">64 mm</view>
+    <view class="paper-dim paper-dim-outer-height">86 mm</view>
+    <view class="paper-photo">
+      <view class="paper-dim paper-dim-inner-width">46 mm</view>
+      <view class="paper-dim paper-dim-inner-height">62 mm</view>
+    </view>
+    <view class="paper-label">mini</view>
+  </view>
+
+  <view class="paper-action-hint {{activePaper ? 'show' : ''}}">
+    再次点击 {{activePaper}} 查看图鉴
+  </view>
+</view>
